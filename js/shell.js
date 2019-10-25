@@ -2,7 +2,7 @@
     Please don't judge my code, this is full of hacks as all I wanted waas
     to get it working. Also, I hate front-end development.
 
-    For those of you who are here only to read the command list, 
+    For those of you who are here only to read the command list,
     scroll down to the handleShellCommand function.
 
     If you have an idea of something else I could add, email me at:
@@ -22,8 +22,8 @@ function init() {
     doShellOutput(" ");
     doShellOutput("<b>First time</b>? If so, type <b>help</b>!");
     doShellOutput(" ");
-    
-        
+
+
     doShellPrompt();
 
     // Add an event listener, so we can get the keypresses for the commands
@@ -36,7 +36,7 @@ function handleShellCommand(command) {
     command = command.split(" ")[0];
 
     if(command == "") {
-        // Do nothing  
+        // Do nothing
     } else if (command == "ls") {
         if(split_command.includes("-a") || split_command.includes("-l") || split_command.includes("-la") || split_command.includes("-al")) {
             doShellOutput(".");
@@ -44,14 +44,14 @@ function handleShellCommand(command) {
             doShellOutput(".ratoshrc");
         }
     } else if (command == "whoami") {
-        doShellOutput("nobody");   
+        doShellOutput("nobody");
     } else if (command == "help") {
         doShellOutput("Hello and welcome to my <del>website</del> <b>shell</b>!");
         doShellOutput(" ");
-        doShellOutput("I'm <b>Rodrigo Rato</b>, a <b>Computer Science and Engineering</b> student, interested in:");
+        doShellOutput("I'm <b>Rodrigo Rato</b>, a Site Reliability Engineer, former <b>Computer Science and Engineering</b> student, interested in:");
+        doShellOutput("    -> <b>System Administration</b> and <b>Site Reliability Engineering</b>;");
         doShellOutput("    -> <b>Software</b> and <b>Network Security</b>;");
         doShellOutput("    -> <b>Cyber forensics</b>;");
-        doShellOutput("    -> <b>System Administration</b>;");
         doShellOutput("    -> Virtualization and <b>Cloud Technologies</b>;");
         doShellOutput("... and much more. I like all kinds of challenges.");
         doShellOutput(" ");
@@ -62,8 +62,8 @@ function handleShellCommand(command) {
         doShellOutput("Would you like to learn more about me?");
         doShellOutput("If so, type `<i><b>man rato</b></i>`.");
         doShellOutput(" ");
-        
-        
+
+
     } else if (command == "man") {
         doShellOutput("RATO(1)                       Rodrigo Rato                             RATO(1)");
         doShellOutput("NAME ");
@@ -96,8 +96,8 @@ function handleShellCommand(command) {
         doShellOutput("USER     TTY        LOGIN@   IDLE   JCPU    PCPU    WHAT");
         doShellOutput("rato     pts/0      08Aug18  4days  1:09m   1:09m   htop ");
         doShellOutput("nobody   www        01Jan70  ∞      13:37m  13:37m  ratosh ");
-        
-          
+
+
     } else if (command == "cd") {
         doShellOutput("No such file or directory.");
     } else if (command == "rm") {
@@ -123,9 +123,9 @@ function handleShellCommand(command) {
         } else {
             doShellOutput("UNIX(tm) System V");
         }
-          
+
     } else if (command == "stty") {
-        doShellOutput("You wish.");          
+        doShellOutput("You wish.");
     } else if (command == "touch") {
         doShellOutput("Trying to touch me? Ew. Gross.");
     } else if (command == "mkdir") {
@@ -149,30 +149,31 @@ function handleShellCommand(command) {
             doShellOutput("    -> <b>https://www.linkedin.com/in/rodrigorato/</b>");
             doShellOutput("    -> <b>https://twitter.com/genericpointer</b>");
             doShellOutput("    -> <b>https://github.com/rodrigorato/</b>");
-            
+
         } else if(split_command.includes("-i") || split_command.includes("--interests")) {
             doShellOutput("I'm interested in:")
+            doShellOutput("    -> <b>System Administration</b> and <b>Site Reliability Engineering</b>;");
             doShellOutput("    -> <b>Software</b> and <b>Network Security</b>;");
             doShellOutput("    -> <b>Cyber forensics</b>;");
-            doShellOutput("    -> <b>System Administration</b>;");
             doShellOutput("    -> Virtualization and <b>Cloud Technologies</b>;");
             doShellOutput("... and much more. I like all kinds of challenges.");
         } else if(split_command.includes("-l") || split_command.includes("--likes")) {
             doShellOutput("Some other things I like include:");
             doShellOutput("    -> <b>Photography - Digital and Film</b>;");
-            doShellOutput("    -> <b>Music - I play the Bass guitar</b>;");
+            doShellOutput("    -> <b>Music - I play the electric guitar</b>;");
             doShellOutput("    -> <b>FPS games - Mainly Counter-Strike</b>;");
             doShellOutput("    -> <b>Historical computing - I Revived a Sun SPARCServer 1000</b>;");
             doShellOutput("    -> <b>*NIX - Big fan of FOSS SW and *NIX in general</b>;");
 
-            
+
         } else if(split_command.includes("-t") || split_command.includes("--timeline")) {
             doShellOutput("My professional timeline (as of 14/08/2018):");
-            doShellOutput(" [2017 ~ present] - <b>System Administrator</b>@RNL/DEI: Windows System Administration;");
+            doShellOutput(" [2019 ~ present] - <b>Site Reliability Engineer at Unbabel;");
+            doShellOutput(" [2017 ~ 2019] - <b>System Administrator</b>@RNL/DEI: Windows System Administration and Team Lead;");
             doShellOutput(" ");
             doShellOutput(" [2017 ~ present] - <b>MEIC-A</b>@IST: MSc. in Cyber Security;");
             doShellOutput(" [2014 ~ 2017] - <b>LEIC-A</b>@IST: BSc. in Computer Science and Engineering;");
-        
+
         } else {
             doShellOutput("Invalid argument.");
             doShellOutput("To find valid usage/arguments, use `<i><b>man rato</b></i>`.");
@@ -181,7 +182,7 @@ function handleShellCommand(command) {
     } else {
         doShellOutput("ratosh: command not found: " + command);
     }
-    
+
     doShellPrompt();
 }
 
@@ -191,7 +192,7 @@ String.prototype.replaceAll = function(search, replacement) {
 };
 
 // Write to output, aka changing the divs around in the dom
-// This is a huge hack lmao, but what isn't with front-end development? 
+// This is a huge hack lmao, but what isn't with front-end development?
 // Either way, I don't want any of this in my life, so it "just works".
 function doShellOutput(str, newline = true) {
     var commandsElement = document.getElementById("shell-commands");
@@ -235,7 +236,7 @@ function handleKeyPress(evnt) {
         doShellOutput("");
         handleShellCommand(currentString);
         currentString = "";
-    } else if(keyCode == 8) { 
+    } else if(keyCode == 8) {
         doShellOutput("^[");
     } else {
         // Else, just add the new char to the command in currentString
